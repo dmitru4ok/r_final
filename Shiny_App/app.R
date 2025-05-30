@@ -34,7 +34,6 @@ server = function(input, output, session) {
     
     gender_counts <- refined %>%
       filter(str_detect(refined$categories, pattern)) %>%
-      filter(!is.na(gender)) %>%
       group_by(gender) %>%
       summarise(count = n())
     
