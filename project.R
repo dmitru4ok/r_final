@@ -7,8 +7,7 @@ library(ggplot2)
 library(bslib)
 library(lubridate)
 
-dataset = read.csv("Pazymejimas.csv", na.strings="")
-refined = dataset[,c(9,13,15,18)]
+refined = read.csv("dataset.csv", na.strings="")
 refined = na.omit(refined)
 
 refined$gender = as.factor(refined$gender)
@@ -23,7 +22,7 @@ str(refined)
 
 age_density_plot <- ggplot(refined, aes(x = refined$age_when_got_licence)) +
     geom_density(fill = "skyblue", alpha = 0.7, color = "blue") +
-    geom_histogram(aes(y = after_stat(density)), binwidth = 3, fill = "lightblue", alpha = 0.5, color = "grey50") +
+    geom_histogram(aes(y = after_stat(density)), binwidth = 1, fill = "lightblue", alpha = 0.5, color = "grey50") +
     labs(
       title = "Driver age distribution in the moment of obtaining the licence",
       subtitle = "Plot and density histogram",
