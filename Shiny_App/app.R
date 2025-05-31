@@ -1,4 +1,4 @@
-ui <- page_sidebar(
+ui = page_sidebar(
   sidebar = sidebar(
     helpText("The treemap shows the distribution of license categories."),
     selectInput("category_select",

@@ -15,12 +15,12 @@ refined$birth_date = as.Date(refined$birth_date)
 refined$license_valid_from = as.Date(refined$license_valid_from)
 refined$age_when_got_licence = as.numeric(
   interval(refined$birth_date, refined$license_valid_from) / years(1))
-refined = refined[refined$age_when_got_licence >= 18, ] # only "legal licences :)"
+refined = refined[refined$age_when_got_licence >= 15, ] # only "legal licences :)"
 str(refined)
 
 # plot 1
 
-age_density_plot <- ggplot(refined, aes(x = refined$age_when_got_licence)) +
+age_density_plot = ggplot(refined, aes(x = refined$age_when_got_licence)) +
     geom_density(fill = "skyblue", alpha = 0.7, color = "blue") +
     geom_histogram(aes(y = after_stat(density)), binwidth = 1, fill = "lightblue", alpha = 0.5, color = "grey50") +
     labs(
